@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 
-class SearchBar extends React.Component {
+class SideBar extends React.Component {
     constructor(props) {
         super();
         this.state = {
@@ -12,6 +12,7 @@ class SearchBar extends React.Component {
 
         this.onChange = (address) => this.setState({ address });
         this.handleSelect = this.handleSelect.bind(this);
+        this.removeMarker = this.removeMarker.bind(this);
     }
 
     handleSelect(address) {
@@ -29,9 +30,12 @@ class SearchBar extends React.Component {
           .catch(error => alert(error));
     }
 
+    removeMarker(event) {
+        event.preventDefault();
+        this.props.removeMarker(event.target.getAttribute('data-marker-key'));
+    }
+
     render() {
-        // const markedPlaces = this.props.markedPlaces;
-        // console.log(markedPlaces);
         const AutocompleteItem = ({ formattedSuggestion }) => (
                  <div>
                    <strong>{formattedSuggestion.mainText}</strong>{' '}
@@ -48,7 +52,7 @@ class SearchBar extends React.Component {
         return (
             <aside className="col-sm-3" id="searchSection">
                 <div className="row">
-                    <form onSubmit={this.handleFormSubmit}>
+                    <form>
                         <PlacesAutocomplete
                             autocompleteItem={AutocompleteItem}
                             inputProps={inputProps}
@@ -61,9 +65,10 @@ class SearchBar extends React.Component {
                     <h4>List of marked places</h4>
                     <ul className="list-group">
                         {this.props.markedPlaces.map((markedPlace, index) => {
-                            return <li key={index} className="list-group-item">
-                              {markedPlace.infoContent}
-                              <button type="button" className="btn btn-danger btn-xs btn-removeMarker">Remove</button>
+                            return <li key={index} className="list-group-item row">
+                            <div className="col-sm-9">{markedPlace.infoContent}</div>
+                            <div className="col-sm-3"><button data-marker-key={markedPlace.key} type="button" className="btn btn-danger btn-xs btn-removeMarker" onClick={this.removeMarker}>Remove</button>
+                            </div>
                             </li>;
                         })}
                     </ul>
@@ -73,9 +78,10 @@ class SearchBar extends React.Component {
     }
 }
 
-SearchBar.propTypes = {
+SideBar.propTypes = {
   sendLocationToParent: PropTypes.func.isRequired,
-  markedPlaces: PropTypes.array.isRequired
+  markedPlaces: PropTypes.array.isRequired,
+  removeMarker: PropTypes.func.isRequired
 };
 
-export default SearchBar;
+export default SideBar;

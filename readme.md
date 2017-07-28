@@ -1,6 +1,8 @@
 # Google Places App
 The application allows a user to search for places with an auto suggest feature which fetches places from Google Places API. Upon selection of a place a marker is added in the map at the selected location's latitude and longitude.
 
+Also a list of added markers is displayed besides the map and the user will have the ability to remove the markers.
+
 # Tools/Libraries Used
 *   ReactJs
 *   Webpack and Webpack-dev-server
