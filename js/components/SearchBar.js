@@ -28,7 +28,6 @@ class SearchBar extends React.Component {
     render() {
         const AutocompleteItem = ({ formattedSuggestion }) => (
                  <div>
-                   <span className="glyphicon glyphicon-map-marker" />
                    <strong>{formattedSuggestion.mainText}</strong>{' '}
                    <small className="text-muted">{formattedSuggestion.secondaryText}</small>
                  </div>
