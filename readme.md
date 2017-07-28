@@ -17,3 +17,4 @@ Also a list of added markers is displayed besides the map and the user will have
 *   The application can be run in 2 modes:
     * **Development**: Run `npm run dev`. (this mode is powered by webpack's dev server with hot reloading and static files are not minimized and served from memory)
     * **Production**: Run `npm run prod`. (bundled and minified files will be generated in the **dist** folder and are served from there)
+*   You should be able to run the app based on `http://localhost:8080`
