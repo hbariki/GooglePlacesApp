@@ -20,10 +20,7 @@ module.exports = {
     module: {
         rules: [
             { test: /\.js$/, enforce: 'pre', exclude: /node_modules/, loader: 'eslint-loader' },
-            {test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader',
-                query: {
-                    presets: ["es2015", "react"]
-                }},
+            {test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' },
             {test: /(\.css)$/, loader: ExtractTextPlugin.extract('css-loader?sourceMap') },
             {test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file-loader"},
             {test: /\.(woff|woff2)$/, loader: "url-loader?prefix=font/&limit=5000"},
