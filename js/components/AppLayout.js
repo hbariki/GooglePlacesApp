@@ -14,10 +14,10 @@ class AppLayout extends React.Component {
                     lat: 37.773972,
                     lng: -122.431297
                 },
-                key: `San Francisco`,
+                key: `San Francisco, CA`,
                 defaultAnimation: 2,
                 showInfo: false,
-                infoContent: (<p>San Francisco, CA</p>)
+                infoContent: (<span>San Francisco, CA</span>)
             }]
         };
 
@@ -51,7 +51,7 @@ class AppLayout extends React.Component {
             {
                 position: locationObj.latLng,
                 defaultAnimation: 2,
-                infoContent: (<p>{locationObj.address}</p>),
+                infoContent: (<span>{locationObj.address}</span>),
                 key: Date.now()
             }
         ];
@@ -66,7 +66,9 @@ class AppLayout extends React.Component {
         return (
             <div id="appLayout">
                 <Header />
-                <SearchBar sendLocationToParent={this.getSelectedLatLong} />
+                <SearchBar
+                    markedPlaces={this.state.markers}
+                    sendLocationToParent={this.getSelectedLatLong} />
                 <MapComponent
                     containerElement={mapContainer}
                     mapElement={<div style={{ height: `100%` }} />}
