@@ -1,0 +1,41 @@
+#map {
+    height: 100%;
+}
+
+.navbar {
+    background-color: black;
+}
+
+#app, #appLayout, #mapWrapper {
+    height: 100%;
+}
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+@media screen and (min-width:769px) {
+    #searchSection {
+        display : block!important;
+        position: relative;
+    }
+}
+
+@media screen and (max-width:768px) {
+    #searchSection {
+        padding: 20px;
+        z-index: 1001;
+    }
+
+    #mapWrapper {
+        margin-top: 30px;
+        width: 100%;
+    }
+
+    .container {
+        display: inline-block;
+        cursor: pointer;
+    }
+}
