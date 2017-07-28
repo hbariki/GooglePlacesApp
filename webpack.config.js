@@ -11,9 +11,6 @@ module.exports = {
         publicPath: '/dist',
         filename: '[name].js'
     },
-    devServer: {
-        contentBase: './'
-    },
     plugins: [
         new ExtractTextPlugin('[name].css')
     ],
