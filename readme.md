@@ -18,3 +18,4 @@ Also a list of added markers is displayed besides the map and the user will have
     * **Development**: Run `npm run dev`. (this mode is powered by webpack's dev server with hot reloading and static files are not minimized and served from memory)
     * **Production**: Run `npm run prod`. (bundled and minified files will be generated in the **dist** folder and are served from there)
 *   You should be able to run the app based on `http://localhost:8080`
+- You can find live version of the app in https://hbariki.github.io/GooglePlacesApp/
